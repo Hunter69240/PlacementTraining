@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background: #0077be;
+}
+
+.aquarium {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fish {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  animation: swim 10s linear infinite;
+}
+
+.fish1 { top: 20%; animation-duration: 8s; }
+.fish2 { top: 40%; animation-duration: 12s; }
+.fish3 { top: 60%; animation-duration: 10s; }
+.fish4 { top: 80%; animation-duration: 14s; }
+
+.fish-name {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.fish:hover .fish-name {
+  opacity: 1;
+}
+
+/* Swimming animation */
+@keyframes swim {
+  from { left: -10%; }
+  to { left: 110%; }
+}
+
+/* Bubble animation */
+.bubbles {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bubble {
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: bubble-rise 5s linear infinite;
+}
+
+.bubble:nth-child(odd) {
+  animation-duration: 7s;
+}
+
+@keyframes bubble-rise {
+  from { transform: translateY(0) scale(1); opacity: 0.6; }
+  to { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+}
